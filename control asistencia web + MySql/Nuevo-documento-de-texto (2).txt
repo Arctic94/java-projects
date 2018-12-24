@@ -1,0 +1,72 @@
+http://www.aprenderaprogramar.es/index.php?option=com_content&view=article&id=619:clase-calendar-y-gregoriancalendar-java-conversion-de-fechas-ejemplos-cambios-desde-java-8-cu00925c&catid=58:curso-lenguaje-programacion-java-nivel-avanzado-i&Itemid=180
+http://carloszuluaga.wikidot.com/articulos:manejo-de-fechas-en-java-ii
+https://www.cis.upenn.edu/~bcpierce/courses/629/jdkdocs/api/java.util.GregorianCalendar.html
+http://www.mkyong.com/java/java-date-and-calendar-examples/
+http://www.programandoconcafe.com/2011/03/java-manejo-de-fechas-javautildate.html
+http://www.aprenderaprogramar.es/index.php?option=com_content&view=article&id=618:clase-date-del-api-java-metodos-before-after-tolocalestring-togmtstring-y-gettime-ejemplos-cu00924c&catid=58:curso-lenguaje-programacion-java-nivel-avanzado-i&Itemid=180
+
+ <%
+            
+            SimpleDateFormat sdf= new SimpleDateFormat("dd/mm/yyyy");
+            Calendar c1= GregorianCalendar.getInstance();
+           
+            c1.set(2016, 06, 10, 22, 15, 50);
+           
+            Date fecha=new Date(sdf.format("12/12/2012"));
+           
+        %>
+        <%=sdf.format(fecha) %>
+        <%=c1.get(Calendar.DAY_OF_MONTH) %>
+
+
+
+
+<%-- 
+    Document   : newjsp
+    Created on : 16-06-2016, 15:36:08
+    Author     : alumnossur
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.Calendar" %>
+<%@page import="java.util.GregorianCalendar " %>
+<%@page import="java.util.Date " %>
+<%@page import="java.text.SimpleDateFormat" %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+        
+        <%
+            
+            SimpleDateFormat sdf= new SimpleDateFormat("yyyy/M/dd");
+            SimpleDateFormat sdf_horas=new SimpleDateFormat("HH:mm:ss");
+            Calendar c1= GregorianCalendar.getInstance();
+           
+            c1.set(2016, 06, 10, 22, 15, 50);
+           
+            Date fecha=new Date("12/11/2012");
+            
+            
+            Calendar fecha1=new GregorianCalendar(2004,05,28);
+            Calendar fecha2=new GregorianCalendar(2004,05,30);
+            
+            Calendar hora1=new GregorianCalendar(0,0,0,7,56,34);
+            Calendar hora2=new GregorianCalendar(0,0,0,18,5,23);
+            Date hora1aux=hora1.getTime();
+            Date hora2aux=hora2.getTime();
+            long diff=hora2aux.getTime()-hora1aux.getTime();
+           
+        %>
+        <%=diff/(24*60*60) %>
+        <%=sdf_horas.format(hora1.getTime()) %>
+        <%=sdf_horas.format(hora2.getTime()) %><br>
+        <%=sdf.format(fecha) %>
+        <%=sdf.format(fecha1.getTime()) %>
+        <%=fecha1.get(Calendar.DAY_OF_MONTH) %>
+    </body>
+</html>
